@@ -67,7 +67,8 @@ export class Router {
      *     and URL + hash to history
      *  4. Finally, call the stored function for the given page
      */
-//bullet 1
+
+    //bullet 1
     try {
       this.navigate();
     } catch (err){
@@ -83,8 +84,9 @@ export class Router {
     }
 
     //bullet 3 --> still need to figure out
+    //use history.pushState() to add the current state and URL + hash to history
     if (!statePopped && window.location.hash != hash){
-     // history.pushState(states, url + hash to history);
+      history.pushState(shown, page + hash);
     }
 
     //bullet 4
