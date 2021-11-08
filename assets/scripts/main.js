@@ -24,7 +24,8 @@ const router = new Router(function () {
    * 
    * This will only be two single lines
    * If you did this right, you should see just 1 recipe card rendered to the screen
-   */
+   */  
+
   document.querySelector('section.section--recipe-cards').add(shown);
   document.querySelector('section.section--recipe-expand').remove(shown);
 });
@@ -121,6 +122,9 @@ function createRecipeCards() {
    * After this step you should see multiple cards rendered like the end of the last
    * lab
    */
+  for (let element of recipes) {
+    bindRecipeCard(element, page);
+  }
 }
 
 /**
@@ -176,6 +180,12 @@ function bindEscKey() {
    * if the escape key is pressed, use your router to navigate() to the 'home'
    * page. This will let us go back to the home page from the detailed page.
    */
+  document.addEventListener('keydown', function(event){
+    if(event.key==="escape"){
+      navigate('home');
+    }
+  });
+    
 }
 
 /**
@@ -197,4 +207,6 @@ function bindPopstate() {
    * so your navigate() function does not add your going back action to the history,
    * creating an infinite loop
    */
+  window.addEventListener('popstate', navigate ('home' , true));
+
 }

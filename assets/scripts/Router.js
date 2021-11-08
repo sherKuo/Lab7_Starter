@@ -91,5 +91,6 @@ export class Router {
 
     //bullet 4
     //call stored function for given page
+    this[page];
   }
 }
